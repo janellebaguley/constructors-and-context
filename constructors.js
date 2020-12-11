@@ -61,12 +61,17 @@ function Employee(name, email, hireDate) {
       invoking moveCar on the right object (prius vs mustang).
   */
   
-  function Car(){
-    this.make = make;
-    this.model = model;
-    this.year = year;
+  function Car(make, model, year){
+    this.make = make,
+    this.model = model,
+    this.year = year,
+    this.move = 0
+    this.moveCar = function(){
+      this.move += 10
+      return this.move
+    }
   }
-  
+prius.moveCar()
   ////////// PROBLEM 4 //////////
   
   /*
@@ -86,9 +91,8 @@ function Employee(name, email, hireDate) {
   
  Movie.prototype.changeRating = function(num){
    this.rating += num;
-   return this;
+   return this.rating
  }
- const changeRating = new Movie()
   
   ////////// PROBLEM 5 //////////
   
@@ -101,7 +105,12 @@ function Employee(name, email, hireDate) {
     this.age = age;
     this.email = email;
     this.savedPosts = savedPosts;
+  }
 
+  User.prototype.addSavedPosts = function(id, title, rating){
+    this.id = id
+    this.title = title;
+    this.rating = rating;
   }
   
   ////////// PROBLEM 6 //////////
@@ -110,9 +119,7 @@ function Employee(name, email, hireDate) {
   // Write a prototype method for the User constructor function named removeSavedPost that will take in one number parameter representing the post id. Use this id to find and remove the matching object in the savedPosts array.
   
  User.prototype.removeSavedPost = function(num){
-   this.num =num;
  }
-
   
   ////////// PROBLEM 7 //////////
   
@@ -120,6 +127,7 @@ function Employee(name, email, hireDate) {
   // Write a prototype method for the User constructor function named changePostRating that will take in two number parameters. The first will be an id (a number) and the second will be the new rating (a number). Use the id to find the matching object in the savedPosts array. Once you find the matching object, update it's rating score with the new rating parameter.
   
   User.prototype.changePostRating = function(id, num){
-
+    this.id = id;
+    this.newRating = newRating
   }
   
